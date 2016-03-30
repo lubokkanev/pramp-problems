@@ -102,4 +102,3 @@ public class P02MatrixSpiralTraverser {
         bottom = matrix.length - 1;
     }
 }
-
