@@ -7,18 +7,6 @@ public class P02MatrixSpiralTraverser {
     private Integer top;
     private Integer bottom;
 
-    public static void test() {
-        int[][] matrix = new int[][]{
-                new int[]{10, 11, 12, 13, 14, 15},
-                new int[]{16, 17, 18, 19, 20, 21},
-                new int[]{22, 23, 24, 25, 26, 27},
-                new int[]{28, 29, 30, 31, 32, 33},
-                new int[]{34, 35, 36, 37, 38, 39}
-        };
-
-        System.out.println("\nMatrixSpiralTraverser: ");
-        System.out.println(new P02MatrixSpiralTraverser(matrix).traverseMatrix());
-    }
 
     public P02MatrixSpiralTraverser(int[][] matrix) {
         this.matrix = matrix;
@@ -27,6 +15,14 @@ public class P02MatrixSpiralTraverser {
         right = 0;
         top = 0;
         bottom = 0;
+    }
+
+    public void setMatrix(int[][] matrix) {
+        this.matrix = matrix;
+    }
+
+    public int[][] getMatrix() {
+        return matrix;
     }
 
     public String traverseMatrix() {
