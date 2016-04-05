@@ -1,4 +1,4 @@
-package com.lubokkanev.pramp.problems;
+package com.lubokkanev.main.pramp.problems;
 
 public class P02MatrixSpiralTraverser {
     private int[][] matrix;
