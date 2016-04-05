@@ -7,11 +7,12 @@ public class P01SentenceReverser {
         this.sentence = sentence;
     }
 
-    public static void test() {
-        String test = "perfect! makes Practice";
+    public String getSentence() {
+        return sentence;
+    }
 
-        System.out.println("\nSentenceReverser:");
-        System.out.println(new P01SentenceReverser(test).smartReverse());
+    public void setSentence(String sentence) {
+        this.sentence = sentence;
     }
 
     public String smartReverse() {
