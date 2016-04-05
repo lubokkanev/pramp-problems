@@ -4,17 +4,30 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class P00ShiftedArrayFinder {
-    private ArrayList<Integer> array;
+    private List<Integer> array;
 
-    public P00ShiftedArrayFinder(ArrayList<Integer> array) {
-        this.array = array;
+    private final String INVALID_ARRAY_MESSAGE = "Array is not sorted with just a shift, or the array" +
+            "  is empty. ";
+
+    private class InvalidArrayException extends RuntimeException {
+        public InvalidArrayException(String invalid_array_message) {
+            super(invalid_array_message);
+        }
     }
 
-    public ArrayList<Integer> getArray() {
+    public P00ShiftedArrayFinder(ArrayList<Integer> array) {
+        setArray(array);
+    }
+
+    public List<Integer> getArray() {
         return array;
     }
 
-    public void setArray(ArrayList<Integer> array) {
+    public void setArray(List<Integer> array) {
+        if (!verifySortedShifted(array)) {
+            throw new InvalidArrayException(INVALID_ARRAY_MESSAGE);
+        }
+
         this.array = array;
     }
 
@@ -70,5 +83,25 @@ public class P00ShiftedArrayFinder {
         } else {
             return mid;
         }
+    }
+
+    protected boolean verifySortedShifted(List<Integer> array) {
+        if (array == null || array.isEmpty()) {
+            return false;
+        }
+
+        int iterator = 1;
+
+        while (iterator < array.size() && array.get(iterator) > array.get(iterator - 1)) {
+            ++iterator;
+        }
+
+        for (int i = iterator + 1; i < array.size(); ++i) {
+            if (array.get(i) < array.get(i - 1) || array.get(i) < array.get(iterator)) {
+                return false;
+            }
+        }
+
+        return true;
     }
 }
