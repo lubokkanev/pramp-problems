@@ -1,4 +1,4 @@
-package com.lubokkanev.main.pramp.problems;
+package com.lubokkanev.pramp.problems;
 
 import java.util.ArrayList;
 import java.util.List;

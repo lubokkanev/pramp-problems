@@ -1,6 +1,5 @@
-package com.lubokkanev.test.pramp.problems;
+package com.lubokkanev.pramp.problems;
 
-import com.lubokkanev.main.pramp.problems.P00ShiftedArrayFinder;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

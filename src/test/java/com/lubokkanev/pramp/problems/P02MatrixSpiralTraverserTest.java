@@ -1,6 +1,5 @@
-package com.lubokkanev.test.pramp.problems;
+package com.lubokkanev.pramp.problems;
 
-import com.lubokkanev.main.pramp.problems.P02MatrixSpiralTraverser;
 import org.junit.Before;
 import org.junit.Test;
 
