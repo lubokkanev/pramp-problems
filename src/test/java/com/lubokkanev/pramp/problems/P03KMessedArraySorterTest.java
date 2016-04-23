@@ -1,4 +1,5 @@
 package com.lubokkanev.pramp.problems;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -43,14 +44,14 @@ public class P03KMessedArraySorterTest {
         assertEquals(sortedArray, classUnderTest.sort());
     }
 
-    @Test (expected = IllegalArgumentException.class)
+    @Test(expected = IllegalArgumentException.class)
     public void testSort_nullArray() {
         assertEquals(null, classUnderTest.sort());
     }
 
     @Test
     public void testSort_emptyArray() {
-        List<Integer> sortedArray = prepareClass(1, Arrays.asList());
+        List<Integer> sortedArray = prepareClass(1, Collections.emptyList());
 
         assertEquals(sortedArray, classUnderTest.sort());
     }
@@ -62,7 +63,7 @@ public class P03KMessedArraySorterTest {
         assertEquals(sortedArray, classUnderTest.sort());
     }
 
-    @Test (expected = IllegalArgumentException.class)
+    @Test(expected = IllegalArgumentException.class)
     public void testSort_zeroK() {
         prepareClass(0, Arrays.asList(2, 3, 6, 8, 12, 56));
         classUnderTest.sort();
@@ -73,5 +74,25 @@ public class P03KMessedArraySorterTest {
         List<Integer> sortedArray = prepareClass(3, Arrays.asList(2, 2, 2, 2, 2, 2));
 
         assertEquals(sortedArray, classUnderTest.sort());
+    }
+
+    @Test
+    public void testSort_typeDouble() {
+        ArrayList<Double> array = new ArrayList<>(Arrays.asList(2.1, 6.1, 3.1, 12.1, 56.1, 8.1));
+        P03KMessedArraySorter<Double> sorter = new P03KMessedArraySorter<>(3, array);
+        ArrayList<Double> sortedArray = new ArrayList<>(array);
+        Collections.sort(sortedArray);
+
+        assertEquals(sortedArray, sorter.sort());
+    }
+
+    @Test
+    public void testSort_typeFloat() {
+        ArrayList<Float> array = new ArrayList<>(Arrays.asList(2.1f, 6.1f, 3.1f, 12.1f, 56.1f, 8.1f));
+        P03KMessedArraySorter<Float> sorter = new P03KMessedArraySorter<>(3, array);
+        ArrayList<Float> sortedArray = new ArrayList<>(array);
+        Collections.sort(sortedArray);
+
+        assertEquals(sortedArray, sorter.sort());
     }
 }
