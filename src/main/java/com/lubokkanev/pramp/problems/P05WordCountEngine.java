@@ -35,7 +35,6 @@ public class P05WordCountEngine {
         }
     }
 
-    private File file;
     private BufferedReader reader;
     private Map<String, Integer> map;
     private LinkedList<WordCount> list;
@@ -44,14 +43,12 @@ public class P05WordCountEngine {
         map = new HashMap<>();
         list = new LinkedList<>();
 
-        this.file = file;
         if (file != null) {
             reader = new BufferedReader(new FileReader(file));
         }
     }
 
     public void setFile(File file) throws FileNotFoundException {
-        this.file = file;
         reader = new BufferedReader(new FileReader(file));
     }
 
