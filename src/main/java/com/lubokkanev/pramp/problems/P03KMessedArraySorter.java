@@ -15,14 +15,6 @@ public class P03KMessedArraySorter<T extends Comparable> {
         heap = new PriorityQueue<>(determineInitialCapacity(array));
     }
 
-    private int determineInitialCapacity(List<T> array) {
-        if (array != null) {
-            return array.size();
-        } else {
-            return 1;
-        }
-    }
-
     public void setArray(List<T> array) {
         this.array = array;
     }
@@ -47,6 +39,14 @@ public class P03KMessedArraySorter<T extends Comparable> {
         heap.clear();
 
         return sortedArray;
+    }
+
+    private int determineInitialCapacity(List<T> array) {
+        if (array != null) {
+            return array.size();
+        } else {
+            return 1;
+        }
     }
 
     private void kSort(List<T> array) {
