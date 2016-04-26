@@ -12,7 +12,7 @@ import static junit.framework.TestCase.assertEquals;
 
 public class P05WordCountEngineTest {
     private P05WordCountEngine classUnderTest;
-    private File file = new File("src/test/resources/test.txt");
+    private File file = new File("test/resources/test.txt");
 
     @Before
     public void setUp() throws IOException {
