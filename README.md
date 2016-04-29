@@ -8,4 +8,3 @@ JUnit
 
 Mockito
 
-Git
