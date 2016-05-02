@@ -41,8 +41,29 @@ public class P05WordCountEngineTest {
         String three = "three";
         writeToFile(three + " " + three + "\n" + three);
 
-
         List<P05WordCountEngine.WordCount> expectedResult = new ArrayList<>(Collections.singletonList(new P05WordCountEngine.WordCount(three, 3)));
+        List<P05WordCountEngine.WordCount> actualResult = classUnderTest.countWords();
+
+        assertEquals(expectedResult, actualResult);
+    }
+
+    @Test
+    public void testCountWords_capitals() throws IOException {
+        String three = "three";
+        writeToFile("thREE three THREE\ntHrEe \n THRee");
+
+        List<P05WordCountEngine.WordCount> expectedResult = new ArrayList<>(Collections.singletonList(new P05WordCountEngine.WordCount(three, 5)));
+        List<P05WordCountEngine.WordCount> actualResult = classUnderTest.countWords();
+
+        assertEquals(expectedResult, actualResult);
+    }
+
+    @Test
+    public void testCountWords_multipleDelimiters() throws IOException {
+        String one = "one";
+        writeToFile(one + " ;. " + one + " \n; " + one + " ; ");
+
+        List<P05WordCountEngine.WordCount> expectedResult = new ArrayList<>(Collections.singletonList(new P05WordCountEngine.WordCount(one, 3)));
         List<P05WordCountEngine.WordCount> actualResult = classUnderTest.countWords();
 
         assertEquals(expectedResult, actualResult);

@@ -30,7 +30,10 @@ public class P05WordCountEngine {
 
             if (count != wordCount.count) return false;
             return word != null ? word.equals(wordCount.word) : wordCount.word == null;
+        }
 
+        public String toString() {
+            return word + ": " + count;
         }
     }
 
@@ -52,11 +55,17 @@ public class P05WordCountEngine {
     }
 
     public List<WordCount> countWords() throws IOException {
-        String line = "";
+        String line;
         while ((line = reader.readLine()) != null) {
-            String[] words = line.split(",|\\.|;| ");
+            String[] words = line.split("[,\\.;\\s]");
 
             for (String word : words) {
+                word = word.toLowerCase();
+
+                if (word.equals("")) {
+                    continue;
+                }
+
                 if (map.containsKey(word)) {
                     map.put(word, map.get(word) + 1);
                 } else {

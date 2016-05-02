@@ -16,4 +16,5 @@ hs_err_pid*
 out/
 pramp-problems.iml
 target/
-test/resources
+test/resources/
+
